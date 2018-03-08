@@ -6,7 +6,7 @@ Various python/R scripts I've written over the course of my PhD for various reas
 To run the three scripts currently in this repo from anywhere on the cluster you can put them in your home directory (preferably somewhere easy to access near home, i.e. cd ~) and alias them like so:
 
 1. open your .bashrc file from /home/username/
-2. Add each alias like so:
+1. Add each alias like so:
 
         # .bashrc
         alias minimize="sbatch /home/kmskvf/gromacs_scripts/sbatch_dp_part.sh"
@@ -15,10 +15,10 @@ To run the three scripts currently in this repo from anywhere on the cluster you
 
 I chose the names minimize, run_md, and post_process_md, but you can name them whatever you want.
 
-3. Source the .bash_profile (which will in turn source the .bashrc)
-4. Navigate to the gromacs folder unpacked in the CHARMM-GUI tarball
-5. Type minimize and click enter
-6. When minimize finishes, type run_md and click enter
-        6a. Note If you want longer than a 1ns simulation, vim step5_production.mdp and alter nsteps (add a 0 for 10ns and so on)
-7. When run_md finishes, type post_process_md and click enter
-8. Done!
+1. Source the .bash_profile (which will in turn source the .bashrc)
+1. Navigate to the gromacs folder unpacked in the CHARMM-GUI tarball
+1. Type minimize and click enter
+1. When minimize finishes, type run_md and click enter
+        *-Note If you want longer than a 1ns simulation, vim step5_production.mdp and alter nsteps (add a 0 for 10ns and so on)-*
+1. When run_md finishes, type post_process_md and click enter
+1. Done!
