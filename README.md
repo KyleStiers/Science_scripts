@@ -19,5 +19,6 @@ I chose the names minimize, run_md, and post_process_md, but you can name them w
 4. Navigate to the gromacs folder unpacked in the CHARMM-GUI tarball
 5. Type minimize and click enter
 6. When minimize finishes, type run_md and click enter
+        6a. Note If you want longer than a 1ns simulation, vim step5_production.mdp and alter nsteps (add a 0 for 10ns and so on)
 7. When run_md finishes, type post_process_md and click enter
 8. Done!
