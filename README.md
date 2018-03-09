@@ -1,10 +1,10 @@
 # Science_scripts
 Various python, R, and shell scripts I've written over the course of my PhD - hopefully helpful to others! If you have questions or comments you can reach me at *kyle stiers at gmail dot com* (no spaces).
 
-# HTS Data processing
+## HTS Data processing
 The HTS_process.py script is quite case-specific, but there are certainly pieces that could be useful to others. It expects the output from a PerkinElmer Envision spectrophotometer (flourimeter) where the first row contains plate number and a timestamp. Then, after a newline character, CSVs of RFUs for an entire plate. After another new line, it simply prints some static text. Of note, the next time the instrument reads the same plate, i.e. plate #1, it still only prints "Plate_1" to the file - so the script has to remember if it's seen that before or not to parse out timestamps and calculate time elapsed and subsequently RFU/time (rate). If you'd like an email send me a message.
 
-# Running MD scripts anywhere on Lewis
+## Running MD scripts anywhere on Lewis
 To run the three scripts currently in this repo from anywhere on the cluster you can put them in your home directory (preferably somewhere easy to access near home, i.e. cd ~) and alias them like so:
 
 1. open your .bashrc file from /home/username/
