@@ -9,9 +9,10 @@ To run the three scripts currently in this repo from anywhere on the cluster you
 1. Add each alias like so:
 
         # .bashrc
-        alias minimize="sbatch /home/kmskvf/gromacs_scripts/sbatch_dp_part.sh"
-        alias run_md="sbatch /home/kmskvf/gromacs_scripts/sbatch_gpu_part.sh"
-        alias post_process_md="sbatch /home/kmskvf/gromacs_scripts/sbatch_trjconv.sh"
+        alias minimize="sbatch /home/username/gromacs_scripts/sbatch_dp_part.sh"
+        alias run_md="sbatch /home/username/gromacs_scripts/sbatch_gpu_part.sh"
+        alias post_process_md="sbatch /home/username/gromacs_scripts/sbatch_trjconv.sh"
+        alias continue_md="sbatch /home/username/gromacs_scripts/sbatch_continue_md.sh"
 
 I chose the names minimize, run_md, and post_process_md, but you can name them whatever you want.
 
