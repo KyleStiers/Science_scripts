@@ -7,7 +7,7 @@ The HTS_process.py script is quite case-specific, but there are certainly pieces
 ## Running MD scripts anywhere on Lewis
 To run the three scripts currently in this repo from anywhere on the cluster you can put them in your home directory (preferably somewhere easy to access near home, i.e. cd ~) and alias them like so:
 
-1. open your .bashrc file from /home/username/
+1. open your .bashrc file from /home/username/, i.e. `vim .bashrc`
 1. Add each alias like so:
 
         # .bashrc
@@ -19,7 +19,7 @@ To run the three scripts currently in this repo from anywhere on the cluster you
 I chose the names minimize, run_md, and post_process_md, but you can name them whatever you want.
 
 1. Run `source .bash_profile` from the /home/username
-1. Navigate to the gromacs folder unpacked in the CHARMM-GUI tarball
+1. Navigate to the gromacs folder unpacked in the CHARMM-GUI tarball, i.e. cd
 1. Type minimize and click enter
 1. When minimize finishes, type run_md and click enter
         *-Note If you want longer than a 1ns simulation, vim step5_production.mdp and alter nsteps (add a 0 for 10ns and so on)-*
