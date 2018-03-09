@@ -1,5 +1,5 @@
 # Science_scripts
-Various python/R scripts I've written over the course of my PhD for various reasons
+Various python, R, and shell scripts I've written over the course of my PhD - hopefully helpful to others!
 
 
 # Running MD scripts anywhere on Lewis
