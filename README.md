@@ -19,6 +19,7 @@ To run the three scripts currently in this repo from anywhere on the cluster you
 I chose the names minimize, run_md, and post_process_md, but you can name them whatever you want.
 
 1. Source the .bash_profile (which will in turn source the .bashrc)
+        Run `source .bash_profile` from the /home/username
 1. Navigate to the gromacs folder unpacked in the CHARMM-GUI tarball
 1. Type minimize and click enter
 1. When minimize finishes, type run_md and click enter
