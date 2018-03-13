@@ -19,8 +19,12 @@ Download this repository and scp (or however you like to transfer) the archive t
         # .bashrc
         alias minimize="sbatch /home/username/gromacs_scripts/sbatch_dp_part.sh"
         alias run_md="sbatch /home/username/gromacs_scripts/sbatch_gpu_part.sh"
+        alias post_process_md="sbatch /home/kmskvf/gromacs_scripts/sbatch_trjconv.sh"
+        alias continue_md="sbatch /home/kmskvf/gromacs_scripts/sbatch_continue_md.sh"
+        alias convert_xtc_to_dcd="/home/kmskvf/gromacs_scripts/convert_xtc_to_dcd.sh"
+        alias analyze_traj="sbatch /home/kmskvf/R_scripts/traj_analysis.sh"
 
-I chose the names minimize and run_md, but you can name them whatever you want.
+I chose the names minimize and run_md, but you can name them whatever you want (the other ones are talked about in the Processing MD section).
 
 1. Run `source ~/.bashrc`
 
@@ -32,7 +36,7 @@ I chose the names minimize and run_md, but you can name them whatever you want.
 1. Run `cd charmm-gui/gromacs/`
 1. Run `minimize`
 1. When minimize finishes, run `run_md`
-        *-Note If you want longer than a 1ns simulation, `vim step5_production.mdp` and alter nsteps (add a 0 for 10ns and so on)-*
+        *-Note If you want longer than a 1ns simulation, `vim step5_production.mdp` and alter nsteps (add a 0 for 10ns and so on). Also         if the simulation doesn't finish within the time-frame allocated you can go back to the same directory and use `continue_md` to         continue it.
 1. Done!
 
 ### Processing MD
