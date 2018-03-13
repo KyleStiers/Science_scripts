@@ -33,7 +33,7 @@ I chose the names minimize and run_md, but you can name them whatever you want (
 1. Create a *very clear* directory name for the simulation
 1. Copy (via scp, sftp, etc.) the tarball created by Charmm-gui to this folder
 1. Run `tar -xvf charmm-gui.tgz -C your_dir_name/`
-1. Run `cd charmm-gui/gromacs/`
+1. Run `cd your_dir_name/charmm-gui/gromacs/`
 1. Run `minimize`
 1. When minimize finishes, run `run_md`
         *-Note If you want longer than a 1ns simulation, `vim step5_production.mdp` and alter nsteps (add a 0 for 10ns and so on). Also         if the simulation doesn't finish within the time-frame allocated you can go back to the same directory and use `continue_md` to         continue it.
