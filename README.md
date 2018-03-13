@@ -1,5 +1,5 @@
 # Science_scripts
-Various python, R, and shell scripts I've written over the course of my PhD - hopefully helpful to others! If you have questions or comments you can reach me at *kyle stiers at gmail dot com* (no spaces).
+Various python, R, and shell scripts I've written over the course of my PhD - hopefully helpful to others! If you have questions or comments you can reach me at *kyle stiers at gmail dot com* (no spaces). If anything in here is used in a publication I would appreciate minimally letting me know or more ideally an acknowledgement.
 
 ------------------------------------------------------------------------------------------------------------------
 ## HTS Data processing
