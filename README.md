@@ -4,6 +4,7 @@ Various python, R, and shell scripts I've written over the course of my PhD - ho
 ------------------------------------------------------------------------------------------------------------------
 ## HTS Data processing
 The HTS_process.py script is quite case-specific, but there are certainly pieces that could be useful to others. It expects the output from a PerkinElmer Envision spectrophotometer (flourimeter) where the first row contains plate number and a timestamp. Then, after a newline character, CSVs of RFUs for an entire plate. After another new line, it simply prints some static text. Of note, the next time the instrument reads the same plate, i.e. plate #1, it still only prints "Plate_1" to the file - so the script has to remember if it's seen that before or not to parse out timestamps and calculate time elapsed and subsequently RFU/time (rate). If you'd like an email send me a message.
+
 ------------------------------------------------------------------------------------------------------------------
 
 ## Easily running GROMACS-MD on Lewis
