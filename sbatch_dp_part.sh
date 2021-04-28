@@ -15,7 +15,7 @@
 #SBATCH -A general # investor account # <-- updated
 
 ## notifications
-#SBATCH --mail-user=------@mail.missouri.edu # email address for notifications
+#SBATCH --mail-user=kmskvf@mail.missouri.edu # email address for notifications
 #SBATCH --mail-type=END,FAIL # which type of notifications to send
 #
 #-------------------------------------------------------------------------------
@@ -23,13 +23,29 @@
 echo "### Starting at: $(date) ###"
 
 # load modules and source
-source /storage/hpc/hpc-poc/micore/gromacs-mpionlydp/bin/GMXRC
-module load cuda/cuda-8.0
-module load hwloc/hwloc-1.11.4
+source /group/micore/gromacs2018.3-mpionlydp/bin/GMXRC
+module load openmpi/openmpi-2.1.3
+module load hwloc/hwloc-1.11.9
 module list
 
-gmx_mpionlydp grompp -f step4.0_minimization.mdp -o step4.0_minimization.tpr -c step3_charmm2gmx.pdb -p topol.top
-gmx_mpionlydp mdrun -ntomp 6 -s step4.0_minimization.tpr -v -deffnm step4.0_minimization
+#OLD VERSION
+#gmx_mpionlydp grompp -f step4.0_minimization.mdp -o step4.0_minimization.tpr -r step3_input.pdb -c step3_input.pdb -p topol.top
 
+#NEW CHARMM-GUI TEMPLATE
+#set init = step3_input
+#set mini_prefix = step4.0_minimization
+#set equi_prefix = step4.1_equilibration
+#set prod_prefix = step5_production
+#set prod_step   = step5
+#MINIMIZE
+#gmx grompp -f ${mini_prefix}.mdp -o ${mini_prefix}.tpr -c ${init}.gro -r ${init}.gro -p topol.top -n index.ndx -maxwarn -1
+#gmx_d mdrun -v -deffnm ${mini_prefix}
+
+
+gmx_mpionlydp grompp -f step4.0_minimization.mdp -o step4.0_minimization.tpr -c step3_input.gro -r step3_input.gro -p topol.top -n index.ndx -maxwarn -1
+
+#gmx_mpionlydp mdrun -ntomp 6 -s step4.0_minimization.tpr -v -deffnm step4.0_minimization
+
+gmx_mpionlydp mdrun -s step4.0_minimization.tpr -v -deffnm step4.0_minimization
 
 echo "### Ending at: $(date) ###"
