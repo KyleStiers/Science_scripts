@@ -3,18 +3,18 @@
 # SBATCH CONFIG
 #-------------------------------------------------------------------------------
 ## resources
-#SBATCH -p gpu3 # partition (which set of nodes to run on)
-#SBATCH --mem=50G # Reserve this amount of memory
+#SBATCH -p gpu3 # partition (which set of nodes to run on) # <-- updated
+#SBATCH --mem=75G # Reserve this amount of memory
 #SBATCH -t 2-00:00 # Time Reservation (days-hours:minutes)
-#SBATCH --qos=normal 
-#SBATCH --gres gpu:1 
+#SBATCH --qos=normal # qos level
+#SBATCH --gres gpu:1 # <-- updated (missing before)
 ## labels and outputs
 #SBATCH -J gromacs # job name - shows up in sacct and squeue
 #SBATCH -o results_gromacs-%j.out # filename for the output from this job (%j = job#)
-#SBATCH -A general-gpu # investor account
+#SBATCH -A general-gpu # investor account # <-- updated
 
 ## notifications
-#SBATCH --mail-user=------@mail.missouri.edu # email address for notifications
+#SBATCH --mail-user=kmskvf@mail.missouri.edu # email address for notifications
 #SBATCH --mail-type=END,FAIL # which type of notifications to send
 #
 #-------------------------------------------------------------------------------
@@ -22,12 +22,21 @@
 echo "### Starting at: $(date) ###"
 
 # load modules and source
-source /storage/hpc/hpc-poc/micore/gromacs-gputhread/bin/GMXRC
-module load cuda/cuda-8.0
-module load hwloc/hwloc-1.11.4
+source /group/micore/gromacs2018.3-gputhread/bin/GMXRC
+module load hwloc/hwloc-1.11.9
+module load cuda/cuda-9.2.148
 module list
 
-gmx_gputhread grompp -f step4.1_equilibration.mdp -o step4.1_equilibration.tpr -c step4.0_minimization.gro -r step3_charmm2gmx.pdb -n index.ndx -p topol.top
+###NEW TEMPLATE
+#set init = step3_input
+#set mini_prefix = step4.0_minimization
+#set equi_prefix = step4.1_equilibration
+#set prod_prefix = step5_production
+#set prod_step   = step5
+#gmx grompp -f ${equi_prefix}.mdp -o ${equi_prefix}.tpr -c ${mini_prefix}.gro -r ${init}.gro -p topol.top -n index.ndx
+#gmx mdrun -v -deffnm ${equi_prefix}
+
+gmx_gputhread grompp -f step4.1_equilibration.mdp -o step4.1_equilibration.tpr -c step4.0_minimization.gro -r step3_input.pdb -n index.ndx -p topol.top
 
 gmx_gputhread mdrun -s step4.1_equilibration.tpr -v -deffnm step4.1_equilibration
 
