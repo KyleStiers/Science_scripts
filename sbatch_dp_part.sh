@@ -15,7 +15,7 @@
 #SBATCH -A general # investor account # <-- updated
 
 ## notifications
-#SBATCH --mail-user=kmskvf@mail.missouri.edu # email address for notifications
+#SBATCH --mail-user=------@mail.missouri.edu # email address for notifications
 #SBATCH --mail-type=END,FAIL # which type of notifications to send
 #
 #-------------------------------------------------------------------------------
