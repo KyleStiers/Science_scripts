@@ -14,7 +14,7 @@
 #SBATCH -A general-gpu # investor account # <-- updated
 
 ## notifications
-#SBATCH --mail-user=kmskvf@mail.missouri.edu # email address for notifications
+#SBATCH --mail-user=------@mail.missouri.edu # email address for notifications
 #SBATCH --mail-type=END,FAIL # which type of notifications to send
 #
 #-------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ module list
 #gmx grompp -f ${equi_prefix}.mdp -o ${equi_prefix}.tpr -c ${mini_prefix}.gro -r ${init}.gro -p topol.top -n index.ndx
 #gmx mdrun -v -deffnm ${equi_prefix}
 
-gmx_gputhread grompp -f step4.1_equilibration.mdp -o step4.1_equilibration.tpr -c step4.0_minimization.gro -r step3_input.pdb -n index.ndx -p topol.top
+gmx_gputhread grompp -f step4.1_equilibration.mdp -o step4.1_equilibration.tpr -c step4.0_minimization.gro -r step4.0_minimization.gro -n index.ndx -p topol.top
 
 gmx_gputhread mdrun -s step4.1_equilibration.tpr -v -deffnm step4.1_equilibration
 
